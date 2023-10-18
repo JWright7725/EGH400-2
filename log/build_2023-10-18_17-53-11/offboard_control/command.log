@@ -1,0 +1,6 @@
+Invoking command in '/home/jwrig/EGH400-2/build/offboard_control': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/jwrig/EGH400-2/src/offboard_control -DCMAKE_INSTALL_PREFIX=/home/jwrig/EGH400-2/install/offboard_control
+Invoked command in '/home/jwrig/EGH400-2/build/offboard_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/jwrig/EGH400-2/src/offboard_control -DCMAKE_INSTALL_PREFIX=/home/jwrig/EGH400-2/install/offboard_control
+Invoking command in '/home/jwrig/EGH400-2/build/offboard_control': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/jwrig/EGH400-2/build/offboard_control -- -j8 -l8
+Invoked command in '/home/jwrig/EGH400-2/build/offboard_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/jwrig/EGH400-2/build/offboard_control -- -j8 -l8
+Invoking command in '/home/jwrig/EGH400-2/build/offboard_control': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/jwrig/EGH400-2/build/offboard_control
+Invoked command in '/home/jwrig/EGH400-2/build/offboard_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/jwrig/EGH400-2/build/offboard_control

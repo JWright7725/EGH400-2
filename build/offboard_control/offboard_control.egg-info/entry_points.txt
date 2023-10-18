@@ -1,0 +1,2 @@
+[console_scripts]
+UAV_control = offboard_control.UAV_control:main
