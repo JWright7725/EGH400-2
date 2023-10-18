@@ -25,7 +25,7 @@ PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL=x500 ./build/px4_sitl_default/bin/px4
 
 To specify the initial location and unique ID of the created simulation vehicle, which is necessary for multi-vehicle simulaitons, the following command should be utilised:
 ```
-PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL=x500 PX4_GZ-MODEL-POSE="<vehicle position>" ./build/px4_sitl_default/bin/px4 -i <instance>
+PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL=x500 PX4_GZ_MODEL_POSE="<vehicle position>" ./build/px4_sitl_default/bin/px4 -i <instance>
 ```
 Where the vehicle position is a comma spereated string of the desired initial vehicle position and attitude, and the vehicle instance is a positive integer value.
 
