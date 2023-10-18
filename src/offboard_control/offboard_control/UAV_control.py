@@ -150,8 +150,8 @@ class OffboardControl(Node):
     def publish_position_setpoint(self):
         """Publish the trajectory setpoint."""
         msg = TrajectorySetpoint()
-        msg.position = self.next_waypoint[:3] # [x, y, z]
-        msg.yaw = self.next_waypoint[3] # Yaw angle [rads]
+        msg.position = self.waypoints[self.waypoint_index][:3] # [x, y, z]
+        msg.yaw = self.waypoints[self.waypoint_index][3] # Yaw angle [rads]
         msg.timestamp = int(self.get_clock().now().nanoseconds / 1000)
         self.trajectory_setpoint_publisher.publish(msg)
 
@@ -190,4 +190,43 @@ class OffboardControl(Node):
                 self.engage_offboard_mode()
                 # Arm the UAV
                 self.get_logger().info(f"Arming UAV {self.uav_id}")
- 
+                self.arm()
+                self.offboard_setpoint_counter += 1
+            else:
+                # If the current waypoint has been reached, start tracking towards the next waypoint
+                if self.reached_waypoint():
+                    self.get_logger().info(f'UAV {self.uav_id} has reached Waypoint {self.waypoint_index + 1}')
+                    self.waypoint_index += 1
+                # If all waypoints have been reached, land the UAV and disarm the system
+                if self.waypoint_index == len(self.waypoints):
+                    self.land()
+                    self.landed = True
+                else:
+                    # Undertake offboard control    
+                    self.publish_position_setpoint()
+        else:
+            if self.vehicle_status.arming_state == 1:
+                self.get_logger().info(f"UAV {self.uav_id} has completed the mission")
+                raise SystemExit
+                
+
+
+def main(args=None) -> None:
+    print('Starting offboard control node...')
+    rclpy.init(args=args)
+    offboard_control = OffboardControl()
+    try:
+        rclpy.spin(offboard_control)
+    except:
+        rclpy.logging.get_logger('Shutdown').info('Shutting Down')
+
+    offboard_control.destroy_node()
+    rclpy.shutdown()
+
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception as e:
+        print(e)
