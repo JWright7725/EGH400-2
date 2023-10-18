@@ -14,15 +14,15 @@ def generate_launch_description():
                 {'UAV_ID': '1'}
             ]
         ),
-        # Node(
-        #     package='offboard_control',
-        #     namespace='UAV2',
-        #     executable='UAV_control',
-        #     name='sim',
-        #     output="screen",
-        #     emulate_tty=True,
-        #     parameters=[
-        #         {'UAV_ID': '2'}
-        #     ]
-        # )
+        Node(
+            package='offboard_control',
+            namespace='UAV2',
+            executable='UAV_control',
+            name='sim',
+            output="screen",
+            emulate_tty=True,
+            parameters=[
+                {'UAV_ID': '2'}
+            ]
+        )
     ])

@@ -1,0 +1,30 @@
+running egg_info
+creating ../../build/control_demo/control_demo.egg-info
+writing ../../build/control_demo/control_demo.egg-info/PKG-INFO
+writing dependency_links to ../../build/control_demo/control_demo.egg-info/dependency_links.txt
+writing requirements to ../../build/control_demo/control_demo.egg-info/requires.txt
+writing top-level names to ../../build/control_demo/control_demo.egg-info/top_level.txt
+writing manifest file '../../build/control_demo/control_demo.egg-info/SOURCES.txt'
+reading manifest file '../../build/control_demo/control_demo.egg-info/SOURCES.txt'
+writing manifest file '../../build/control_demo/control_demo.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/jwrig/EGH400-2/build/control_demo/build
+creating /home/jwrig/EGH400-2/build/control_demo/build/lib
+creating /home/jwrig/EGH400-2/build/control_demo/build/lib/control_demo
+copying control_demo/__init__.py -> /home/jwrig/EGH400-2/build/control_demo/build/lib/control_demo
+running install
+running install_lib
+creating /home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages/control_demo
+copying /home/jwrig/EGH400-2/build/control_demo/build/lib/control_demo/__init__.py -> /home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages/control_demo
+byte-compiling /home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages/control_demo/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/jwrig/EGH400-2/install/control_demo/share/ament_index
+creating /home/jwrig/EGH400-2/install/control_demo/share/ament_index/resource_index
+creating /home/jwrig/EGH400-2/install/control_demo/share/ament_index/resource_index/packages
+copying resource/control_demo -> /home/jwrig/EGH400-2/install/control_demo/share/ament_index/resource_index/packages
+copying package.xml -> /home/jwrig/EGH400-2/install/control_demo/share/control_demo
+running install_egg_info
+Copying ../../build/control_demo/control_demo.egg-info to /home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages/control_demo-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/jwrig/EGH400-2/build/control_demo/install.log'

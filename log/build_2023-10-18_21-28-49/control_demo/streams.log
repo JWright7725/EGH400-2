@@ -1,0 +1,45 @@
+[1.156s] Invoking command in '/home/jwrig/EGH400-2/src/control_demo': CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib PYTHONPATH=/home/jwrig/EGH400-2/build/control_demo/prefix_override:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/control_demo build --build-base /home/jwrig/EGH400-2/build/control_demo/build install --record /home/jwrig/EGH400-2/build/control_demo/install.log --single-version-externally-managed
+[1.358s] running egg_info
+[1.358s] creating ../../build/control_demo/control_demo.egg-info
+[1.372s] writing ../../build/control_demo/control_demo.egg-info/PKG-INFO
+[1.373s] writing dependency_links to ../../build/control_demo/control_demo.egg-info/dependency_links.txt
+[1.373s] writing requirements to ../../build/control_demo/control_demo.egg-info/requires.txt
+[1.373s] writing top-level names to ../../build/control_demo/control_demo.egg-info/top_level.txt
+[1.373s] writing manifest file '../../build/control_demo/control_demo.egg-info/SOURCES.txt'
+[1.406s] reading manifest file '../../build/control_demo/control_demo.egg-info/SOURCES.txt'
+[1.407s] writing manifest file '../../build/control_demo/control_demo.egg-info/SOURCES.txt'
+[1.407s] running build
+[1.407s] running build_py
+[1.408s] creating /home/jwrig/EGH400-2/build/control_demo/build
+[1.408s] creating /home/jwrig/EGH400-2/build/control_demo/build/lib
+[1.408s] creating /home/jwrig/EGH400-2/build/control_demo/build/lib/control_demo
+[1.408s] copying control_demo/__init__.py -> /home/jwrig/EGH400-2/build/control_demo/build/lib/control_demo
+[1.408s] running install
+[1.408s] /home/jwrig/.local/lib/python3.10/site-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+[1.408s] !!
+[1.408s] 
+[1.409s]         ********************************************************************************
+[1.409s]         Please avoid running ``setup.py`` directly.
+[1.409s]         Instead, use pypa/build, pypa/installer or other
+[1.409s]         standards-based tools.
+[1.409s] 
+[1.409s]         See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+[1.409s]         ********************************************************************************
+[1.409s] 
+[1.409s] !!
+[1.409s]   self.initialize_options()
+[1.413s] running install_lib
+[1.432s] creating /home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages/control_demo
+[1.432s] copying /home/jwrig/EGH400-2/build/control_demo/build/lib/control_demo/__init__.py -> /home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages/control_demo
+[1.432s] byte-compiling /home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages/control_demo/__init__.py to __init__.cpython-310.pyc
+[1.432s] running install_data
+[1.443s] creating /home/jwrig/EGH400-2/install/control_demo/share/ament_index
+[1.443s] creating /home/jwrig/EGH400-2/install/control_demo/share/ament_index/resource_index
+[1.444s] creating /home/jwrig/EGH400-2/install/control_demo/share/ament_index/resource_index/packages
+[1.444s] copying resource/control_demo -> /home/jwrig/EGH400-2/install/control_demo/share/ament_index/resource_index/packages
+[1.444s] copying package.xml -> /home/jwrig/EGH400-2/install/control_demo/share/control_demo
+[1.444s] running install_egg_info
+[1.460s] Copying ../../build/control_demo/control_demo.egg-info to /home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages/control_demo-0.0.0-py3.10.egg-info
+[1.461s] running install_scripts
+[1.601s] writing list of installed files to '/home/jwrig/EGH400-2/build/control_demo/install.log'
+[1.692s] Invoked command in '/home/jwrig/EGH400-2/src/control_demo' returned '0': CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib PYTHONPATH=/home/jwrig/EGH400-2/build/control_demo/prefix_override:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/control_demo build --build-base /home/jwrig/EGH400-2/build/control_demo/build install --record /home/jwrig/EGH400-2/build/control_demo/install.log --single-version-externally-managed

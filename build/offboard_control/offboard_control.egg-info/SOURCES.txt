@@ -8,6 +8,8 @@ setup.py
 ../../build/offboard_control/offboard_control.egg-info/requires.txt
 ../../build/offboard_control/offboard_control.egg-info/top_level.txt
 ../../build/offboard_control/offboard_control.egg-info/zip-safe
+launch/UAV_control_launch.py
+launch/UAV_single_launch.py
 offboard_control/UAV_control.py
 offboard_control/__init__.py
 resource/offboard_control

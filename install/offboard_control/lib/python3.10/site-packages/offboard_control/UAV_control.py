@@ -50,10 +50,6 @@ class OffboardControl(Node):
         self.offboard_setpoint_counter = 0
         self.vehicle_status = VehicleStatus()
 
-        # Whether the UAV is currently performing D* Lite searching
-        self.d_star_lite_mode = False
-        self.next_waypoint = [0, 0, 0, 0] # [x, y, z, yaw]
-
         # Initial UAV Position
         self.x = 0
         self.y = 0
@@ -77,17 +73,23 @@ class OffboardControl(Node):
                               [-2.0, 5.0, -10.0, -pi]]
         else:
             self.waypoints = []
+
+        # Whether the UAV has been armed
+        self.armed = False
+        # Whether the UAV is currently performing D* Lite searching
+        self.d_star_lite_mode = False
+        self.next_waypoint = self.waypoints[0] # [x, y, z, yaw]
         
         # Create a timer to publish control commands
         self.timer_period = 0.1 # [s]
         self.timer = self.create_timer(self.timer_period, self.timer_callback)
 
-    def distance_to_waypoint(self):
+    def distance_to_waypoint(self, waypoint):
         """Calculates the Euclidean distance between the UAV and the current waypoint"""
         # Calculate the distance in each cardinal direction
-        x_dis = self.waypoints[self.waypoint_index][0] - self.x
-        y_dis = self.waypoints[self.waypoint_index][1] - self.y
-        z_dis = self.waypoints[self.waypoint_index][2] - self.z
+        x_dis = waypoint[0] - self.x
+        y_dis = waypoint[1] - self.y
+        z_dis = waypoint[2] - self.z
 
         # Calculate the total distance using the pythagorean theorem
         waypoint_distance = (x_dis**2 + y_dis**2 + z_dis**2) ** (1/2)
@@ -97,9 +99,9 @@ class OffboardControl(Node):
         # Return the total distance
         return waypoint_distance
     
-    def reached_waypoint(self):
+    def reached_waypoint(self, waypoint):
         """Determines if the UAV has reached the current waypoint"""
-        return self.distance_to_waypoint() <= self.waypoint_tol
+        return self.distance_to_waypoint(waypoint) <= self.waypoint_tol
 
     def position_callback(self, msg_in):
         """Callback function for vehicle_local_position topic subscriber."""
@@ -115,10 +117,21 @@ class OffboardControl(Node):
 
     def arm(self):
         """Send an arm command to the vehicle."""
-        self.publish_vehicle_command(
+        # It is necessary to first ensure a stable connection before transitioning to offboard control.
+        # This involves sending 10 heartbeat signals before arming the UAV
+        if self.offboard_setpoint_counter < 10:
+            self.offboard_setpoint_counter += 1
+        elif self.offboard_setpoint_counter == 10:
+            # Change the UAV control mode to offboard control
+            self.engage_offboard_mode()
+            # Arm the UAV
+            self.get_logger().info(f"Arming UAV {self.uav_id}")
+            self.publish_vehicle_command(
             VehicleCommand.VEHICLE_CMD_COMPONENT_ARM_DISARM, param1=1.0)
-        self.get_logger().info('Arm command sent')
-
+            self.get_logger().info('Arm command sent')
+            # Note that the UAV has been armed
+            self.armed = True   
+        
     def disarm(self):
         """Send a disarm command to the vehicle."""
         self.publish_vehicle_command(
@@ -177,17 +190,63 @@ class OffboardControl(Node):
     def timer_callback(self):
         """Callback function to publish control commands"""
 
-        if not self.landed:
-            # Always initially publish a heartbeat signal to ensure connectivity has not been lost
-            self.publish_offboard_control_heartbeat_signal()
+        # Always publish a heartbeat signal to ensure connectivity has not been lost
+        self.publish_offboard_control_heartbeat_signal()
+        # Begin the control sequence by arming the UAV
+        if not self.armed:
+            self.arm()
 
-            # It is necessary to first ensure a stable connection before transitioning to offboard control.
-            # This involves sending 10 heartbeat signals before arming the UAV
-            if self.offboard_setpoint_counter < 10:
-                self.offboard_setpoint_counter += 1
-            elif self.offboard_setpoint_counter == 10:
-                # Change the UAV control mode to offboard control
-                self.engage_offboard_mode()
-                # Arm the UAV
-                self.get_logger().info(f"Arming UAV {self.uav_id}")
- 
+        # Start path planning once the UAV is armed
+        else:
+            # If the UAV is not currently performing a D* Lite Search
+            if not self.d_star_lite_mode:
+                # Initialise the D* Lite Algorithm between adjacent waypoints [[self.x, self.y, self.z], self.next_waypoint]
+                # Set the next waypoint to be the first node within the D* Lite search
+
+                # Note that the UAV is performing a D* Lite Search between waypoints
+                self.d_star_lite_mode = True
+            # If the UAV is currently performing a D* Lite search
+            else:
+                # If the next high-level waypoint has been reached, the D* Lite Search has been completed
+                if self.reached_waypoint(self.waypoints[self.waypoint_index]):
+                        self.get_logger().info(f'UAV {self.uav_id} has reached Waypoint {self.waypoint_index + 1}')
+                        self.waypoint_index += 1
+                        self.next_waypoint = self.waypoints[self.waypoint_index]
+                        self.d_star_lite_mode = False
+                        # If all waypoints have been reached, land the UAV and disarm the system
+                        if self.waypoint_index == len(self.waypoints):
+                            self.land()
+                            self.landed = True
+                elif self.reached_waypoint(self.next_waypoint):
+                    pass
+                    # Move and Rescan
+            # If the UAV has not been landed, continuously publish the location of the next waypoint
+            if not self.landed:
+                self.publish_position_setpoint()
+
+        # If the UAV has landed, shut down communications with the UAV
+        if self.landed and self.vehicle_status.arming_state == 1:
+            self.get_logger().info(f"UAV {self.uav_id} has completed the mission")
+            raise SystemExit
+                
+
+
+def main(args=None) -> None:
+    print('Starting offboard control node...')
+    rclpy.init(args=args)
+    offboard_control = OffboardControl()
+    try:
+        rclpy.spin(offboard_control)
+    except:
+        rclpy.logging.get_logger('Shutdown').info('Shutting Down')
+
+    offboard_control.destroy_node()
+    rclpy.shutdown()
+
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception as e:
+        print(e)
