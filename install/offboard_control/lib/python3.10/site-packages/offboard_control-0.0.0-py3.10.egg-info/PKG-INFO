@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: offboard-control
 Version: 0.0.0
-Summary: TODO: Package description
+Summary: Offboard Control Package for EGH400
 Maintainer: jwrig
 Maintainer-email: jwrig@todo.todo
-License: TODO: License declaration
+License: Apache License 2.0
 Requires-Dist: setuptools
