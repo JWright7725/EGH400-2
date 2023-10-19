@@ -1,0 +1,58 @@
+[0.000000] (-) TimerEvent: {}
+[0.000594] (-) JobUnselected: {'identifier': 'px4_msgs'}
+[0.000631] (-) JobUnselected: {'identifier': 'px4_ros_com'}
+[0.000655] (offboard_control) JobQueued: {'identifier': 'offboard_control', 'dependencies': OrderedDict([('px4_msgs', '/home/jwrig/EGH400-2/install/px4_msgs')])}
+[0.000680] (offboard_control) JobStarted: {'identifier': 'offboard_control'}
+[0.099980] (-) TimerEvent: {}
+[0.200234] (-) TimerEvent: {}
+[0.301079] (-) TimerEvent: {}
+[0.401532] (-) TimerEvent: {}
+[0.501771] (-) TimerEvent: {}
+[0.602058] (-) TimerEvent: {}
+[0.703065] (-) TimerEvent: {}
+[0.803835] (-) TimerEvent: {}
+[0.904132] (-) TimerEvent: {}
+[0.940765] (offboard_control) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/offboard_control', 'build', '--build-base', '/home/jwrig/EGH400-2/build/offboard_control/build', 'install', '--record', '/home/jwrig/EGH400-2/build/offboard_control/install.log', '--single-version-externally-managed'], 'cwd': '/home/jwrig/EGH400-2/src/offboard_control', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_AU:en', 'USER': 'jwrig', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib', 'HOME': '/home/jwrig', 'OLDPWD': '/home/jwrig', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '1745', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/jwrig/EGH400-2/install', 'ROS_DISTRO': 'iron', 'LOGNAME': 'jwrig', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'jwrig', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/iron/bin:/opt/gcc-arm-none-eabi-9-2020-q2-update/bin:/home/jwrig/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/New-Thesis-VM:@/tmp/.ICE-unix/1715,unix/New-Thesis-VM:/tmp/.ICE-unix/1715', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/c234b1c7_2f5d_4793_b4a6_a64724e63c05', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_AU.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.2H0KD2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.106', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control:/home/jwrig/EGH400-2/install/d_star_lite:/home/jwrig/EGH400-2/install/control_demo:/home/jwrig/EGH400-2/install/px4_msgs:/opt/ros/iron', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/jwrig/EGH400-2/build/offboard_control', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/jwrig/EGH400-2/build/offboard_control/prefix_override:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control'}, 'shell': False}
+[1.004206] (-) TimerEvent: {}
+[1.104629] (-) TimerEvent: {}
+[1.146497] (offboard_control) StdoutLine: {'line': b'running egg_info\n'}
+[1.160318] (offboard_control) StdoutLine: {'line': b'writing ../../build/offboard_control/offboard_control.egg-info/PKG-INFO\n'}
+[1.160778] (offboard_control) StdoutLine: {'line': b'writing dependency_links to ../../build/offboard_control/offboard_control.egg-info/dependency_links.txt\n'}
+[1.160971] (offboard_control) StdoutLine: {'line': b'writing entry points to ../../build/offboard_control/offboard_control.egg-info/entry_points.txt\n'}
+[1.161262] (offboard_control) StdoutLine: {'line': b'writing requirements to ../../build/offboard_control/offboard_control.egg-info/requires.txt\n'}
+[1.161515] (offboard_control) StdoutLine: {'line': b'writing top-level names to ../../build/offboard_control/offboard_control.egg-info/top_level.txt\n'}
+[1.190794] (offboard_control) StdoutLine: {'line': b"reading manifest file '../../build/offboard_control/offboard_control.egg-info/SOURCES.txt'\n"}
+[1.191559] (offboard_control) StdoutLine: {'line': b"writing manifest file '../../build/offboard_control/offboard_control.egg-info/SOURCES.txt'\n"}
+[1.191769] (offboard_control) StdoutLine: {'line': b'running build\n'}
+[1.191910] (offboard_control) StdoutLine: {'line': b'running build_py\n'}
+[1.192031] (offboard_control) StdoutLine: {'line': b'copying offboard_control/UAV_control.py -> /home/jwrig/EGH400-2/build/offboard_control/build/lib/offboard_control\n'}
+[1.192323] (offboard_control) StdoutLine: {'line': b'running install\n'}
+[1.192542] (offboard_control) StderrLine: {'line': b'/home/jwrig/.local/lib/python3.10/site-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.\n'}
+[1.192665] (offboard_control) StderrLine: {'line': b'!!\n'}
+[1.192725] (offboard_control) StderrLine: {'line': b'\n'}
+[1.192781] (offboard_control) StderrLine: {'line': b'        ********************************************************************************\n'}
+[1.192836] (offboard_control) StderrLine: {'line': b'        Please avoid running ``setup.py`` directly.\n'}
+[1.192896] (offboard_control) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[1.192950] (offboard_control) StderrLine: {'line': b'        standards-based tools.\n'}
+[1.193004] (offboard_control) StderrLine: {'line': b'\n'}
+[1.193057] (offboard_control) StderrLine: {'line': b'        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.\n'}
+[1.193140] (offboard_control) StderrLine: {'line': b'        ********************************************************************************\n'}
+[1.193206] (offboard_control) StderrLine: {'line': b'\n'}
+[1.193259] (offboard_control) StderrLine: {'line': b'!!\n'}
+[1.193313] (offboard_control) StderrLine: {'line': b'  self.initialize_options()\n'}
+[1.196965] (offboard_control) StdoutLine: {'line': b'running install_lib\n'}
+[1.205459] (-) TimerEvent: {}
+[1.210648] (offboard_control) StdoutLine: {'line': b'copying /home/jwrig/EGH400-2/build/offboard_control/build/lib/offboard_control/UAV_control.py -> /home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control\n'}
+[1.211255] (offboard_control) StdoutLine: {'line': b'byte-compiling /home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control/UAV_control.py to UAV_control.cpython-310.pyc\n'}
+[1.213011] (offboard_control) StdoutLine: {'line': b'running install_data\n'}
+[1.226201] (offboard_control) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.239978] (offboard_control) StdoutLine: {'line': b"removing '/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[1.240349] (offboard_control) StdoutLine: {'line': b'Copying ../../build/offboard_control/offboard_control.egg-info to /home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control-0.0.0-py3.10.egg-info\n'}
+[1.241437] (offboard_control) StdoutLine: {'line': b'running install_scripts\n'}
+[1.306685] (-) TimerEvent: {}
+[1.377130] (offboard_control) StdoutLine: {'line': b'Installing UAV_control script to /home/jwrig/EGH400-2/install/offboard_control/lib/offboard_control\n'}
+[1.377604] (offboard_control) StdoutLine: {'line': b"writing list of installed files to '/home/jwrig/EGH400-2/build/offboard_control/install.log'\n"}
+[1.401424] (offboard_control) CommandEnded: {'returncode': 0}
+[1.407178] (-) TimerEvent: {}
+[1.469097] (offboard_control) JobEnded: {'identifier': 'offboard_control', 'rc': 0}
+[1.470210] (-) EventReactorShutdown: {}

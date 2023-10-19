@@ -1,0 +1,292 @@
+[0.902s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.902s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fa41ccf8b20>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fa41ccf8610>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fa41ccf8610>>)
+[0.950s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.950s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.950s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.950s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.950s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.951s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.951s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/jwrig/EGH400-2'
+[0.951s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.951s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.951s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.951s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.951s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.951s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.951s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.951s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.951s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extensions ['ignore', 'ignore_ament_install']
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extension 'ignore'
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extension 'ignore_ament_install'
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extensions ['colcon_pkg']
+[0.964s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extension 'colcon_pkg'
+[0.965s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extensions ['colcon_meta']
+[0.965s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extension 'colcon_meta'
+[0.965s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extensions ['ros']
+[0.965s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extension 'ros'
+[0.967s] DEBUG:colcon.colcon_core.package_identification:Package 'src/offboard_control' with type 'ros.ament_python' and name 'offboard_control'
+[0.967s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.967s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'ignore'
+[0.967s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'ignore_ament_install'
+[0.967s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['colcon_pkg']
+[0.967s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'colcon_pkg'
+[0.967s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['colcon_meta']
+[0.967s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'colcon_meta'
+[0.967s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['ros']
+[0.967s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'ros'
+[0.968s] DEBUG:colcon.colcon_core.package_identification:Package 'src/px4_msgs' with type 'ros.ament_cmake' and name 'px4_msgs'
+[0.968s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_ros_com) by extensions ['ignore', 'ignore_ament_install']
+[0.968s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_ros_com) by extension 'ignore'
+[0.968s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_ros_com) by extension 'ignore_ament_install'
+[0.968s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_ros_com) by extensions ['colcon_pkg']
+[0.968s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_ros_com) by extension 'colcon_pkg'
+[0.968s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_ros_com) by extensions ['colcon_meta']
+[0.968s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_ros_com) by extension 'colcon_meta'
+[0.968s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_ros_com) by extensions ['ros']
+[0.968s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_ros_com) by extension 'ros'
+[0.969s] DEBUG:colcon.colcon_core.package_identification:Package 'src/px4_ros_com' with type 'ros.ament_cmake' and name 'px4_ros_com'
+[0.969s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.969s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.969s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.969s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.969s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.053s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.053s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.082s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 5 installed packages in /home/jwrig/EGH400-2/install
+[1.096s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 281 installed packages in /opt/ros/iron
+[1.097s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.145s] WARNING:colcon.colcon_core.package_selection:Some selected packages are already built in one or more underlay workspaces:
+	'px4_msgs' is in: /home/jwrig/EGH400-2/install/px4_msgs
+If a package in a merged underlay workspace is overridden and it installs headers, then all packages in the overlay must sort their include directories by workspace order. Failure to do so may result in build failures or undefined behavior at run time.
+If the overridden package is used by another package in any underlay, then the overriding package in the overlay must be API and ABI compatible or undefined behavior at run time may occur.
+
+If you understand the risks and want to override a package anyways, add the following to the command line:
+	--allow-overriding px4_msgs
+
+This may be promoted to an error in a future release of colcon-override-check.
+[1.160s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_args' from command line to 'None'
+[1.160s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_target' from command line to 'None'
+[1.160s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.160s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[1.160s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[1.160s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[1.160s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[1.160s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[1.160s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.160s] DEBUG:colcon.colcon_core.verb:Building package 'px4_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jwrig/EGH400-2/build/px4_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jwrig/EGH400-2/install/px4_msgs', 'merge_install': False, 'path': '/home/jwrig/EGH400-2/src/px4_msgs', 'symlink_install': False, 'test_result_base': None}
+[1.175s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'cmake_args' from command line to 'None'
+[1.175s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'cmake_target' from command line to 'None'
+[1.175s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.175s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'cmake_clean_cache' from command line to 'False'
+[1.175s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'cmake_clean_first' from command line to 'False'
+[1.175s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'cmake_force_configure' from command line to 'False'
+[1.175s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'ament_cmake_args' from command line to 'None'
+[1.175s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'catkin_cmake_args' from command line to 'None'
+[1.175s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.175s] DEBUG:colcon.colcon_core.verb:Building package 'offboard_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jwrig/EGH400-2/build/offboard_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jwrig/EGH400-2/install/offboard_control', 'merge_install': False, 'path': '/home/jwrig/EGH400-2/src/offboard_control', 'symlink_install': False, 'test_result_base': None}
+[1.189s] Level 5:colcon.colcon_core.verb:set package 'px4_ros_com' build argument 'cmake_args' from command line to 'None'
+[1.189s] Level 5:colcon.colcon_core.verb:set package 'px4_ros_com' build argument 'cmake_target' from command line to 'None'
+[1.189s] Level 5:colcon.colcon_core.verb:set package 'px4_ros_com' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.189s] Level 5:colcon.colcon_core.verb:set package 'px4_ros_com' build argument 'cmake_clean_cache' from command line to 'False'
+[1.189s] Level 5:colcon.colcon_core.verb:set package 'px4_ros_com' build argument 'cmake_clean_first' from command line to 'False'
+[1.189s] Level 5:colcon.colcon_core.verb:set package 'px4_ros_com' build argument 'cmake_force_configure' from command line to 'False'
+[1.189s] Level 5:colcon.colcon_core.verb:set package 'px4_ros_com' build argument 'ament_cmake_args' from command line to 'None'
+[1.189s] Level 5:colcon.colcon_core.verb:set package 'px4_ros_com' build argument 'catkin_cmake_args' from command line to 'None'
+[1.189s] Level 5:colcon.colcon_core.verb:set package 'px4_ros_com' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.189s] DEBUG:colcon.colcon_core.verb:Building package 'px4_ros_com' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jwrig/EGH400-2/build/px4_ros_com', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jwrig/EGH400-2/install/px4_ros_com', 'merge_install': False, 'path': '/home/jwrig/EGH400-2/src/px4_ros_com', 'symlink_install': False, 'test_result_base': None}
+[1.204s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.227s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.228s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jwrig/EGH400-2/src/px4_msgs' with build type 'ament_cmake'
+[1.228s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jwrig/EGH400-2/src/px4_msgs'
+[1.243s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.243s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.243s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.663s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jwrig/EGH400-2/build/px4_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jwrig/EGH400-2/install/d_star_lite:/home/jwrig/EGH400-2/install/control_demo:/opt/ros/iron /usr/bin/cmake --build /home/jwrig/EGH400-2/build/px4_msgs -- -j8 -l8
+[4.811s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jwrig/EGH400-2/build/px4_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jwrig/EGH400-2/install/d_star_lite:/home/jwrig/EGH400-2/install/control_demo:/opt/ros/iron /usr/bin/cmake --build /home/jwrig/EGH400-2/build/px4_msgs -- -j8 -l8
+[10.992s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jwrig/EGH400-2/build/px4_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jwrig/EGH400-2/install/d_star_lite:/home/jwrig/EGH400-2/install/control_demo:/opt/ros/iron /usr/bin/cmake --install /home/jwrig/EGH400-2/build/px4_msgs
+[12.759s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(px4_msgs)
+[12.760s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jwrig/EGH400-2/build/px4_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jwrig/EGH400-2/install/d_star_lite:/home/jwrig/EGH400-2/install/control_demo:/opt/ros/iron /usr/bin/cmake --install /home/jwrig/EGH400-2/build/px4_msgs
+[12.775s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs' for CMake module files
+[12.776s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs' for CMake config files
+[12.776s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'cmake_prefix_path')
+[12.789s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.ps1'
+[12.790s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.dsv'
+[12.790s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.sh'
+[12.791s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs/lib'
+[12.791s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'ld_library_path_lib')
+[12.805s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.ps1'
+[12.805s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.dsv'
+[12.805s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.sh'
+[12.806s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs/bin'
+[12.806s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs/lib/pkgconfig/px4_msgs.pc'
+[12.806s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages'
+[12.806s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'pythonpath')
+[12.819s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/pythonpath.ps1'
+[12.820s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/pythonpath.dsv'
+[12.820s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/pythonpath.sh'
+[12.821s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs/bin'
+[12.834s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/package.ps1'
+[12.835s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/package.dsv'
+[12.835s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/package.sh'
+[12.836s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/package.bash'
+[12.836s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/package.zsh'
+[12.837s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jwrig/EGH400-2/install/px4_msgs/share/colcon-core/packages/px4_msgs)
+[19.025s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(px4_msgs)
+[19.039s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs' for CMake module files
+[19.040s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs' for CMake config files
+[19.040s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'cmake_prefix_path')
+[19.054s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.ps1'
+[19.055s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.dsv'
+[19.055s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.sh'
+[19.055s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs/lib'
+[19.056s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'ld_library_path_lib')
+[19.069s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.ps1'
+[19.070s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.dsv'
+[19.070s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.sh'
+[19.070s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs/bin'
+[19.070s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs/lib/pkgconfig/px4_msgs.pc'
+[19.071s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages'
+[19.071s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'pythonpath')
+[19.085s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/pythonpath.ps1'
+[19.085s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/pythonpath.dsv'
+[19.085s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/hook/pythonpath.sh'
+[19.086s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_msgs/bin'
+[19.100s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/package.ps1'
+[19.101s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/package.dsv'
+[19.101s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/package.sh'
+[19.101s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/package.bash'
+[19.102s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_msgs/share/px4_msgs/package.zsh'
+[19.102s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jwrig/EGH400-2/install/px4_msgs/share/colcon-core/packages/px4_msgs)
+[19.103s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/jwrig/EGH400-2/src/offboard_control' with build type 'ament_python'
+[19.103s] Level 1:colcon.colcon_core.shell:create_environment_hook('offboard_control', 'ament_prefix_path')
+[19.118s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/hook/ament_prefix_path.ps1'
+[19.119s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/hook/ament_prefix_path.dsv'
+[19.119s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/hook/ament_prefix_path.sh'
+[19.134s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[19.134s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[19.180s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jwrig/EGH400-2/src/px4_ros_com' with build type 'ament_cmake'
+[19.180s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jwrig/EGH400-2/src/px4_ros_com'
+[19.195s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[19.195s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[19.414s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/jwrig/EGH400-2/src/offboard_control'
+[19.428s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[19.428s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[19.496s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jwrig/EGH400-2/build/px4_ros_com': CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control:/home/jwrig/EGH400-2/install/d_star_lite:/home/jwrig/EGH400-2/install/control_demo:/opt/ros/iron LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib PYTHONPATH=/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/cmake --build /home/jwrig/EGH400-2/build/px4_ros_com -- -j8 -l8
+[19.769s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jwrig/EGH400-2/build/px4_ros_com' returned '0': CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control:/home/jwrig/EGH400-2/install/d_star_lite:/home/jwrig/EGH400-2/install/control_demo:/opt/ros/iron LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib PYTHONPATH=/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/cmake --build /home/jwrig/EGH400-2/build/px4_ros_com -- -j8 -l8
+[19.828s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jwrig/EGH400-2/build/px4_ros_com': CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control:/home/jwrig/EGH400-2/install/d_star_lite:/home/jwrig/EGH400-2/install/control_demo:/opt/ros/iron LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib PYTHONPATH=/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/cmake --install /home/jwrig/EGH400-2/build/px4_ros_com
+[19.925s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(px4_ros_com)
+[19.939s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com' for CMake module files
+[19.939s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com' for CMake config files
+[19.939s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_ros_com', 'cmake_prefix_path')
+[19.941s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jwrig/EGH400-2/build/px4_ros_com' returned '0': CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control:/home/jwrig/EGH400-2/install/d_star_lite:/home/jwrig/EGH400-2/install/control_demo:/opt/ros/iron LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib PYTHONPATH=/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/cmake --install /home/jwrig/EGH400-2/build/px4_ros_com
+[19.955s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/hook/cmake_prefix_path.ps1'
+[19.955s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/hook/cmake_prefix_path.dsv'
+[19.956s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/hook/cmake_prefix_path.sh'
+[19.963s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com/lib'
+[19.963s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_ros_com', 'ld_library_path_lib')
+[19.977s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/hook/ld_library_path_lib.ps1'
+[19.977s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/hook/ld_library_path_lib.dsv'
+[19.977s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/hook/ld_library_path_lib.sh'
+[19.978s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com/bin'
+[19.978s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com/lib/pkgconfig/px4_ros_com.pc'
+[19.978s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com/lib/python3.10/site-packages'
+[19.978s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com/bin'
+[19.993s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/package.ps1'
+[19.994s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/package.dsv'
+[19.994s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/package.sh'
+[19.995s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/package.bash'
+[19.995s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/package.zsh'
+[19.996s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jwrig/EGH400-2/install/px4_ros_com/share/colcon-core/packages/px4_ros_com)
+[19.999s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jwrig/EGH400-2/src/offboard_control': CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib PYTHONPATH=/home/jwrig/EGH400-2/build/offboard_control/prefix_override:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/offboard_control build --build-base /home/jwrig/EGH400-2/build/offboard_control/build install --record /home/jwrig/EGH400-2/build/offboard_control/install.log --single-version-externally-managed
+[20.054s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(px4_ros_com)
+[20.068s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com' for CMake module files
+[20.068s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com' for CMake config files
+[20.069s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_ros_com', 'cmake_prefix_path')
+[20.084s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/hook/cmake_prefix_path.ps1'
+[20.084s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/hook/cmake_prefix_path.dsv'
+[20.085s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/hook/cmake_prefix_path.sh'
+[20.085s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com/lib'
+[20.085s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_ros_com', 'ld_library_path_lib')
+[20.101s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/hook/ld_library_path_lib.ps1'
+[20.102s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/hook/ld_library_path_lib.dsv'
+[20.102s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/hook/ld_library_path_lib.sh'
+[20.103s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com/bin'
+[20.103s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com/lib/pkgconfig/px4_ros_com.pc'
+[20.103s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com/lib/python3.10/site-packages'
+[20.103s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/px4_ros_com/bin'
+[20.117s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/package.ps1'
+[20.117s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/package.dsv'
+[20.118s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/package.sh'
+[20.118s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/package.bash'
+[20.118s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/px4_ros_com/share/px4_ros_com/package.zsh'
+[20.119s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jwrig/EGH400-2/install/px4_ros_com/share/colcon-core/packages/px4_ros_com)
+[20.468s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jwrig/EGH400-2/src/offboard_control' returned '0': CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib PYTHONPATH=/home/jwrig/EGH400-2/build/offboard_control/prefix_override:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/offboard_control build --build-base /home/jwrig/EGH400-2/build/offboard_control/build install --record /home/jwrig/EGH400-2/build/offboard_control/install.log --single-version-externally-managed
+[20.483s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/offboard_control' for CMake module files
+[20.483s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/offboard_control' for CMake config files
+[20.483s] Level 1:colcon.colcon_core.shell:create_environment_hook('offboard_control', 'cmake_prefix_path')
+[20.498s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/hook/cmake_prefix_path.ps1'
+[20.499s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/hook/cmake_prefix_path.dsv'
+[20.499s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/hook/cmake_prefix_path.sh'
+[20.500s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/offboard_control/lib'
+[20.500s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/offboard_control/bin'
+[20.500s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/offboard_control/lib/pkgconfig/offboard_control.pc'
+[20.500s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages'
+[20.500s] Level 1:colcon.colcon_core.shell:create_environment_hook('offboard_control', 'pythonpath')
+[20.515s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/hook/pythonpath.ps1'
+[20.516s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/hook/pythonpath.dsv'
+[20.516s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/hook/pythonpath.sh'
+[20.517s] Level 1:colcon.colcon_core.environment:checking '/home/jwrig/EGH400-2/install/offboard_control/bin'
+[20.517s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(offboard_control)
+[20.532s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/package.ps1'
+[20.533s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/package.dsv'
+[20.533s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/package.sh'
+[20.534s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/package.bash'
+[20.534s] INFO:colcon.colcon_core.shell:Creating package script '/home/jwrig/EGH400-2/install/offboard_control/share/offboard_control/package.zsh'
+[20.534s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jwrig/EGH400-2/install/offboard_control/share/colcon-core/packages/offboard_control)
+[20.535s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[20.536s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[20.536s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[20.536s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[20.558s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[20.558s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[20.558s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[20.577s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[20.593s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jwrig/EGH400-2/install/local_setup.ps1'
+[20.594s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jwrig/EGH400-2/install/_local_setup_util_ps1.py'
+[20.596s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jwrig/EGH400-2/install/setup.ps1'
+[20.611s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jwrig/EGH400-2/install/local_setup.sh'
+[20.612s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jwrig/EGH400-2/install/_local_setup_util_sh.py'
+[20.613s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jwrig/EGH400-2/install/setup.sh'
+[20.631s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jwrig/EGH400-2/install/local_setup.bash'
+[20.632s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jwrig/EGH400-2/install/setup.bash'
+[20.646s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jwrig/EGH400-2/install/local_setup.zsh'
+[20.647s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jwrig/EGH400-2/install/setup.zsh'

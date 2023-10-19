@@ -3,7 +3,7 @@ from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy, DurabilityPolicy
 from px4_msgs.msg import OffboardControlMode, TrajectorySetpoint, VehicleCommand, VehicleOdometry, VehicleStatus
 from offboard_control.d_star_lite.d_star_lite import initDStarLite, computeShortestPath, moveAndRescan
-from offboard_control.d_star_lite.graph import Grid
+from offboard_control.d_star_lite.graph import Grid, GridNode
 from math import pi
 
 class OffboardControl(Node):
@@ -81,25 +81,31 @@ class OffboardControl(Node):
         self.next_waypoint = self.waypoints[0] # [x, y, z, yaw]
         
         ## D* Lite Functionality
-        self.env_length = 10 # [m]
-        self.env_width = 10 # [m]
-        self.env_height = 10 # [m]
+        self.world_x_offset = 3 # [m]
+        self.world_y_offset = 3 # [m]
 
-        self.node_distance = 0.5 # [m / node]
+        self.env_length = 5 # [m]
+        self.env_width = 5 # [m]
+        self.env_height = 5 # [m]
+
+        self.node_distance = 1 # [m / node]
         self.view_distance = 20 # View distance of the UAV for D* Lite rescanning  [nodes]
 
-        self.node_length = int(self.env_length / self.node_distance)
-        self.node_width = int(self.env_width / self.node_distance)
-        self.node_height = int(self.env_height / self.node_distance)
+        self.node_length = int(self.env_length / self.node_distance) + 1
+        self.node_width = int(self.env_width / self.node_distance) + 1
+        self.node_height = int(self.env_height / self.node_distance) + 1
 
-        print(self.node_length)
+        
 
         self.graph = Grid((self.node_length, self.node_width, self.node_height))
 
         print('Created Grid')
+        print(self.node_length)
+        print(self.node_width)
+        print(self.node_height)
 
         # Create a callback timer to periodically publish control commands
-        self.timer_period = 0.1 # [s]
+        self.timer_period = 0.5 # [s]
         self.timer = self.create_timer(self.timer_period, self.check_mission_status)
 
     ## CALLBACK FUNCTIONS
@@ -215,16 +221,17 @@ class OffboardControl(Node):
 
     def world_to_node(self, world_location):
         """Function for translating between the world frame and the D* Lite node locations"""
-        node_x = world_location[0] // self.node_distance
-        node_y = world_location[1] // self.node_distance
-        node_z = -world_location[2] // self.node_distance
+        self.get_logger().info(f'{world_location}')
+        node_x = int((world_location[0] + self.world_x_offset) // self.node_distance)
+        node_y = int((world_location[1] + self.world_y_offset) // self.node_distance)
+        node_z = -int(world_location[2] // self.node_distance)
         node_location = (node_x, node_y, node_z)
         return node_location
     
     def node_to_world(self, node_location):
-        """Function for translating between teh D* Lite node locations and the world frame"""
-        world_x = node_location[0] * self.node_distance
-        world_y = node_location[1] * self.node_distance
+        """Function for translating between the D* Lite node locations and the world frame"""
+        world_x = (node_location[0] * self.node_distance) - self.world_x_offset
+        world_y = (node_location[1] * self.node_distance) - self.world_y_offset
         world_z = -node_location[2] * self.node_distance
         world_location = [world_x, world_y, world_z]
         yaw_angle = 0.0
@@ -245,9 +252,12 @@ class OffboardControl(Node):
         else:
             # If the UAV is not currently performing a D* Lite Search
             if not self.d_star_lite_mode:
+                self.get_logger().info('Starting D* Lite Planning')
                 # Initialise the D* Lite Algorithm between adjacent waypoints [[self.x, self.y, self.z], self.next_waypoint]
                 self.start_node = self.world_to_node([self.x, self.y, self.z])
-                self.goal_node = self.world_to_node([self.waypoints[self.waypoint_index][:3]])
+                self.get_logger().info(f'Start Node: {self.start_node}')
+                self.goal_node = self.world_to_node(self.waypoints[self.waypoint_index][:3])
+                self.get_logger().info(f'Goal Node: {self.goal_node}')
                 self.graph.setStart(self.start_node)
                 self.graph.setGoal(self.goal_node)
                 self.graph, self.queue, self.k_m = initDStarLite(self.graph, self.start_node, self.goal_node)
@@ -290,10 +300,11 @@ def main(args=None) -> None:
     print('Starting offboard control node...')
     rclpy.init(args=args)
     offboard_control = OffboardControl()
-    try:
-        rclpy.spin(offboard_control)
-    except:
-        rclpy.logging.get_logger('Shutdown').info('Shutting Down')
+    rclpy.spin(offboard_control)
+    # try:
+    #     rclpy.spin(offboard_control)
+    # except:
+    #     rclpy.logging.get_logger('Shutdown').info('Shutting Down')
 
     offboard_control.destroy_node()
     rclpy.shutdown()
