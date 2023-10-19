@@ -85,7 +85,7 @@ class OffboardControl(Node):
         self.env_width = 10 # [m]
         self.env_height = 10 # [m]
 
-        self.node_distance = 0.1 # [m / node]
+        self.node_distance = 0.5 # [m / node]
         self.view_distance = 20 # View distance of the UAV for D* Lite rescanning  [nodes]
 
         self.node_length = int(self.env_length / self.node_distance)
