@@ -1,6 +1,6 @@
 from cmath import inf
 
-class Node:
+class GridNode:
     def __init__(self, location):
         # location of the node within the grid
         self.location = location
@@ -36,10 +36,10 @@ class Grid:
         # 0: Empty (Non-Obstacle)
         # 1: Filled (Obstacle)
         self.cells = {(ii, jj, kk): 0 for ii in range(dimensions[0]) for jj in range(dimensions[1]) for kk in range(dimensions[2])}
-        print(self.cells)
+        # print(self.cells)
         self.generateGraph()
 
-    # Define how Grid objects shoul dbe displayed when printed
+    # Define how Grid objects should be displayed when printed
     def __str__(self):
         msg = 'Graph:'
         for i in self.graph:
@@ -69,11 +69,11 @@ class Grid:
 
     # UPDATE THIS FUNCTION TO ACCEPT KNOWN OBSTACLES AT THE BEGINNING OF THE SEARCH
     def generateGraph(self):
-        for z in range(self.dimensions[0]):
+        for z in range(self.dimensions[2]):
             for y in range(self.dimensions[1]):
-                for x in range(self.dimensions[2]):
+                for x in range(self.dimensions[0]):
                     # Create a node object at each cell
-                    node = Node((x, y, z))
+                    node = GridNode((x, y, z))
 
                     # Populate the neighbours of the node object
                     for zz in range(z-1, z+2):

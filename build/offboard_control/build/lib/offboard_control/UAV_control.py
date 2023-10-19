@@ -3,7 +3,7 @@ from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy, DurabilityPolicy
 from px4_msgs.msg import OffboardControlMode, TrajectorySetpoint, VehicleCommand, VehicleOdometry, VehicleStatus
 from offboard_control.d_star_lite.d_star_lite import initDStarLite, computeShortestPath, moveAndRescan
-from offboard_control.d_star_lite.graph import Grid, GridNode
+from offboard_control.d_star_lite.graph import Grid
 from math import pi
 
 class OffboardControl(Node):
@@ -65,9 +65,9 @@ class OffboardControl(Node):
         self.waypoint_index = 0
         # The list of all waypoints for the mission in order
         if self.uav_id == '1':
-            self.waypoints = [[1.0, 1.0, -2.5, pi],
+            self.waypoints = [[1.0, 1.0, -2.5, 0.0],
                               [1.0, 5.0, -2.5, 0.0],
-                              [1.0, 1.0, -5.0, -pi]]
+                              [1.0, 1.0, -2.5, 0.0]]
         elif self.uav_id == '2':
             self.waypoints = [[0.0, 0.0, -2.5, pi],
                               [10.0, 10.0, -2.5, 0.0],
@@ -81,15 +81,18 @@ class OffboardControl(Node):
         self.next_waypoint = self.waypoints[0] # [x, y, z, yaw]
         
         ## D* Lite Functionality
-        self.world_x_offset = 3 # [m]
-        self.world_y_offset = 3 # [m]
+        self.world_x_offset = 5 # [m]
+        self.world_y_offset = 5 # [m]
+        self.min_flight_height = 2.0 # [m]
 
-        self.env_length = 5 # [m]
-        self.env_width = 5 # [m]
-        self.env_height = 5 # [m]
+        self.reached_min_flight_height = False
 
-        self.node_distance = 1 # [m / node]
-        self.view_distance = 20 # View distance of the UAV for D* Lite rescanning  [nodes]
+        self.env_length = 20 # [m]
+        self.env_width = 20 # [m]
+        self.env_height = 10 # [m]
+
+        self.node_distance = 0.5 # [m / node]
+        self.view_distance = 5 # View distance of the UAV for D* Lite rescanning  [nodes]
 
         self.node_length = int(self.env_length / self.node_distance) + 1
         self.node_width = int(self.env_width / self.node_distance) + 1
@@ -99,13 +102,22 @@ class OffboardControl(Node):
 
         self.graph = Grid((self.node_length, self.node_width, self.node_height))
 
-        print('Created Grid')
-        print(self.node_length)
-        print(self.node_width)
-        print(self.node_height)
+        print(f'Created Grid of size: {self.node_length} x {self.node_width} x {self.node_height}')
+        # print(f'Node Location: {(0,0,0)}, World Location:{self.node_to_world((0,0,0))}')
+        # print(f'World Location: {[-5,-5,-2]}, Node Location:{self.world_to_node([-5,-5,-2])}')
+
+        # print(f'Node Location: {(10,10,10)}, World Location:{self.node_to_world((10,10,10))}')
+        # print(f'World Location: {[0,0,-7]}, Node Location:{self.world_to_node([0,0,-7])}')
+
+        # print(f'Node Location: {(20,20,20)}, World Location:{self.node_to_world((20,20,20))}')
+        # print(f'World Location: {[5,5,-12]}, Node Location:{self.world_to_node([5,5,-12])}')
+
+        # print(f'Node Location: {(self.node_length, self.node_width, self.node_height)}, World Location:{self.node_to_world((self.node_length, self.node_width, self.node_height))}')
+        # print(f'World Location: {[15,15,-10]}, Node Location:{self.world_to_node([15,15,-10])}')
+
 
         # Create a callback timer to periodically publish control commands
-        self.timer_period = 0.5 # [s]
+        self.timer_period = 0.1 # [s]
         self.timer = self.create_timer(self.timer_period, self.check_mission_status)
 
     ## CALLBACK FUNCTIONS
@@ -224,7 +236,7 @@ class OffboardControl(Node):
         self.get_logger().info(f'{world_location}')
         node_x = int((world_location[0] + self.world_x_offset) // self.node_distance)
         node_y = int((world_location[1] + self.world_y_offset) // self.node_distance)
-        node_z = -int(world_location[2] // self.node_distance)
+        node_z = -int((world_location[2] + self.min_flight_height) // self.node_distance)
         node_location = (node_x, node_y, node_z)
         return node_location
     
@@ -232,10 +244,12 @@ class OffboardControl(Node):
         """Function for translating between the D* Lite node locations and the world frame"""
         world_x = (node_location[0] * self.node_distance) - self.world_x_offset
         world_y = (node_location[1] * self.node_distance) - self.world_y_offset
-        world_z = -node_location[2] * self.node_distance
-        world_location = [world_x, world_y, world_z]
+        world_z = -(node_location[2] * self.node_distance) - self.min_flight_height
+        
         yaw_angle = 0.0
-        return [world_location, yaw_angle]
+        world_location = [world_x, world_y, world_z, yaw_angle]
+        
+        return world_location
 
     ## MAIN MISSION STATUS FUNCTION
 
@@ -251,8 +265,9 @@ class OffboardControl(Node):
         # Start path planning once the UAV is armed
         else:
             # If the UAV is not currently performing a D* Lite Search
-            if not self.d_star_lite_mode:
+            if not self.d_star_lite_mode and self.reached_min_flight_height and self.waypoint_index != len(self.waypoints):
                 self.get_logger().info('Starting D* Lite Planning')
+                self.graph = Grid((self.node_length, self.node_width, self.node_height))
                 # Initialise the D* Lite Algorithm between adjacent waypoints [[self.x, self.y, self.z], self.next_waypoint]
                 self.start_node = self.world_to_node([self.x, self.y, self.z])
                 self.get_logger().info(f'Start Node: {self.start_node}')
@@ -265,26 +280,39 @@ class OffboardControl(Node):
                 
                 # Set the next waypoint to be the first node within the D* Lite search
                 self.target_node, self.k_m = moveAndRescan(self.graph, self.queue, self.start_node, self.k_m, self.view_distance)
+                self.current_node = self.target_node
                 self.next_waypoint = self.node_to_world(self.target_node)
+                self.get_logger().info(f'The first D* Node to visit is {self.target_node} at: {self.next_waypoint}')
                 
                 # Note that the UAV is performing a D* Lite Search between waypoints
                 self.d_star_lite_mode = True
 
             # If the UAV is currently performing a D* Lite search
-            else:
+            elif not self.landed:
                 # If the next high-level waypoint has been reached, the D* Lite Search has been completed
+                if not self.reached_min_flight_height:
+                    self.next_waypoint = [self.x, self.y, -self.min_flight_height * 1.5, 0.0]
                 if self.reached_waypoint(self.waypoints[self.waypoint_index]):
-                        self.get_logger().info(f'UAV {self.uav_id} has reached Waypoint {self.waypoint_index + 1}')
-                        self.waypoint_index += 1
-                        self.d_star_lite_mode = False
+                        if self.reached_min_flight_height:
+                            self.get_logger().info(f'UAV {self.uav_id} has reached Waypoint {self.waypoint_index + 1} at: {self.waypoints[self.waypoint_index][:3]}')
+                            self.waypoint_index += 1
+                            self.d_star_lite_mode = False
+                        else:
+                            self.reached_min_flight_height = True
                         # If all waypoints have been reached, land the UAV and disarm the system
                         if self.waypoint_index == len(self.waypoints):
                             self.land()
                             self.landed = True
                 elif self.reached_waypoint(self.next_waypoint):
-                    # If the last D* Lite node has been reached, rescan the area and determine the next suitable node position for the UAV
-                    self.target_node, self.k_m = moveAndRescan(self.graph, self.queue, self.start_node, self.k_m, self.view_distance)
-                    self.next_waypoint = self.node_to_world(self.target_node)
+                    if self.reached_min_flight_height:
+                        # If the last D* Lite node has been reached, rescan the area and determine the next suitable node position for the UAV
+                        self.get_logger().info('Reached the desired D* Lite Waypoint, calculating next')
+                        self.target_node, self.k_m = moveAndRescan(self.graph, self.queue, self.current_node, self.k_m, self.view_distance)
+                        self.current_node = self.target_node
+                        self.next_waypoint = self.node_to_world(self.target_node)
+                        self.get_logger().info(f'The next D* Node to visit is {self.target_node} at: {self.next_waypoint}')
+                    else:
+                        self.reached_min_flight_height = True
             # If the UAV has not been landed, continuously publish the location of the next waypoint
             if not self.landed:
                 self.publish_position_setpoint()
