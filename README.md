@@ -16,7 +16,7 @@ For ROS2 Iron installation:
 Before running the ROS2 package responsible for providing control to the UAVs for flight planning, it is necessary to launch both a Gazebo simulation with the desired UAV configrations, and the Micro XRCE DDS Agent middleware
 
 ### PX4/Gazebo Simulator
-Within a command terminal, traverse to the folder containing the PX$ installation, if the instructions within the provide documentation where used, this can be achieved through the command `cd ~/PX4-Autopilot`.
+Within a command terminal, traverse to the folder containing the PX$ installation, if the instructions within the provide documentation where used, this will be the folder `~/PX4-Autopilot`.
 
 A single quadcoipter UAV can the be initialised with the gazebo simulator through the command:
 ```
