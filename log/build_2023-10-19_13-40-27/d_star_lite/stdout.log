@@ -1,0 +1,42 @@
+running egg_info
+creating ../../build/d_star_lite/d_star_lite.egg-info
+writing ../../build/d_star_lite/d_star_lite.egg-info/PKG-INFO
+writing dependency_links to ../../build/d_star_lite/d_star_lite.egg-info/dependency_links.txt
+writing requirements to ../../build/d_star_lite/d_star_lite.egg-info/requires.txt
+writing top-level names to ../../build/d_star_lite/d_star_lite.egg-info/top_level.txt
+writing manifest file '../../build/d_star_lite/d_star_lite.egg-info/SOURCES.txt'
+reading manifest file '../../build/d_star_lite/d_star_lite.egg-info/SOURCES.txt'
+writing manifest file '../../build/d_star_lite/d_star_lite.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/jwrig/EGH400-2/build/d_star_lite/build
+creating /home/jwrig/EGH400-2/build/d_star_lite/build/lib
+creating /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite
+copying d_star_lite/graph.py -> /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite
+copying d_star_lite/main.py -> /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite
+copying d_star_lite/notes.py -> /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite
+copying d_star_lite/d_star_lite.py -> /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite
+copying d_star_lite/__init__.py -> /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite
+running install
+running install_lib
+creating /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite
+copying /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite/graph.py -> /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite
+copying /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite/main.py -> /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite
+copying /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite/notes.py -> /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite
+copying /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite/d_star_lite.py -> /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite
+copying /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite/__init__.py -> /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite
+byte-compiling /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite/graph.py to graph.cpython-310.pyc
+byte-compiling /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite/main.py to main.cpython-310.pyc
+byte-compiling /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite/notes.py to notes.cpython-310.pyc
+byte-compiling /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite/d_star_lite.py to d_star_lite.cpython-310.pyc
+byte-compiling /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/jwrig/EGH400-2/install/d_star_lite/share/ament_index
+creating /home/jwrig/EGH400-2/install/d_star_lite/share/ament_index/resource_index
+creating /home/jwrig/EGH400-2/install/d_star_lite/share/ament_index/resource_index/packages
+copying resource/d_star_lite -> /home/jwrig/EGH400-2/install/d_star_lite/share/ament_index/resource_index/packages
+copying package.xml -> /home/jwrig/EGH400-2/install/d_star_lite/share/d_star_lite
+running install_egg_info
+Copying ../../build/d_star_lite/d_star_lite.egg-info to /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/jwrig/EGH400-2/build/d_star_lite/install.log'

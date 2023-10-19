@@ -1,0 +1,37 @@
+[1.041s] Invoking command in '/home/jwrig/EGH400-2/src/offboard_control': AMENT_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jwrig/EGH400-2/build/offboard_control/prefix_override:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/offboard_control build --build-base /home/jwrig/EGH400-2/build/offboard_control/build install --record /home/jwrig/EGH400-2/build/offboard_control/install.log --single-version-externally-managed
+[1.229s] running egg_info
+[1.242s] writing ../../build/offboard_control/offboard_control.egg-info/PKG-INFO
+[1.243s] writing dependency_links to ../../build/offboard_control/offboard_control.egg-info/dependency_links.txt
+[1.243s] writing entry points to ../../build/offboard_control/offboard_control.egg-info/entry_points.txt
+[1.243s] writing requirements to ../../build/offboard_control/offboard_control.egg-info/requires.txt
+[1.243s] writing top-level names to ../../build/offboard_control/offboard_control.egg-info/top_level.txt
+[1.271s] reading manifest file '../../build/offboard_control/offboard_control.egg-info/SOURCES.txt'
+[1.280s] writing manifest file '../../build/offboard_control/offboard_control.egg-info/SOURCES.txt'
+[1.280s] running build
+[1.280s] running build_py
+[1.280s] copying offboard_control/UAV_control.py -> /home/jwrig/EGH400-2/build/offboard_control/build/lib/offboard_control
+[1.280s] running install
+[1.295s] /home/jwrig/.local/lib/python3.10/site-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+[1.295s] !!
+[1.295s] 
+[1.295s]         ********************************************************************************
+[1.295s]         Please avoid running ``setup.py`` directly.
+[1.296s]         Instead, use pypa/build, pypa/installer or other
+[1.296s]         standards-based tools.
+[1.296s] 
+[1.296s]         See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+[1.296s]         ********************************************************************************
+[1.296s] 
+[1.296s] !!
+[1.296s]   self.initialize_options()
+[1.300s] running install_lib
+[1.314s] copying /home/jwrig/EGH400-2/build/offboard_control/build/lib/offboard_control/UAV_control.py -> /home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control
+[1.314s] byte-compiling /home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control/UAV_control.py to UAV_control.cpython-310.pyc
+[1.316s] running install_data
+[1.329s] running install_egg_info
+[1.344s] removing '/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control-0.0.0-py3.10.egg-info' (and everything under it)
+[1.359s] Copying ../../build/offboard_control/offboard_control.egg-info to /home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control-0.0.0-py3.10.egg-info
+[1.373s] running install_scripts
+[1.500s] Installing UAV_control script to /home/jwrig/EGH400-2/install/offboard_control/lib/offboard_control
+[1.501s] writing list of installed files to '/home/jwrig/EGH400-2/build/offboard_control/install.log'
+[1.525s] Invoked command in '/home/jwrig/EGH400-2/src/offboard_control' returned '0': AMENT_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jwrig/EGH400-2/build/offboard_control/prefix_override:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/offboard_control build --build-base /home/jwrig/EGH400-2/build/offboard_control/build install --record /home/jwrig/EGH400-2/build/offboard_control/install.log --single-version-externally-managed

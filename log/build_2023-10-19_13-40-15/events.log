@@ -1,0 +1,8 @@
+[0.000000] (-) TimerEvent: {}
+[0.000412] (-) JobUnselected: {'identifier': 'd_star_lite'}
+[0.000446] (-) JobUnselected: {'identifier': 'px4_msgs'}
+[0.000466] (-) JobUnselected: {'identifier': 'px4_ros_com'}
+[0.000730] (offboard_control) JobQueued: {'identifier': 'offboard_control', 'dependencies': OrderedDict([('px4_msgs', '/home/jwrig/EGH400-2/install/px4_msgs'), ('d_star_lite', '/home/jwrig/EGH400-2/install/d_star_lite')])}
+[0.000933] (offboard_control) JobStarted: {'identifier': 'offboard_control'}
+[0.085608] (offboard_control) JobEnded: {'identifier': 'offboard_control', 'rc': 1}
+[0.096515] (-) EventReactorShutdown: {}

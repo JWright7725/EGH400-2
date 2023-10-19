@@ -1,0 +1,57 @@
+[0.839s] Invoking command in '/home/jwrig/EGH400-2/src/d_star_lite': CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib PYTHONPATH=/home/jwrig/EGH400-2/build/d_star_lite/prefix_override:/home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/d_star_lite build --build-base /home/jwrig/EGH400-2/build/d_star_lite/build install --record /home/jwrig/EGH400-2/build/d_star_lite/install.log --single-version-externally-managed
+[1.029s] running egg_info
+[1.029s] creating ../../build/d_star_lite/d_star_lite.egg-info
+[1.045s] writing ../../build/d_star_lite/d_star_lite.egg-info/PKG-INFO
+[1.045s] writing dependency_links to ../../build/d_star_lite/d_star_lite.egg-info/dependency_links.txt
+[1.045s] writing requirements to ../../build/d_star_lite/d_star_lite.egg-info/requires.txt
+[1.045s] writing top-level names to ../../build/d_star_lite/d_star_lite.egg-info/top_level.txt
+[1.045s] writing manifest file '../../build/d_star_lite/d_star_lite.egg-info/SOURCES.txt'
+[1.073s] reading manifest file '../../build/d_star_lite/d_star_lite.egg-info/SOURCES.txt'
+[1.074s] writing manifest file '../../build/d_star_lite/d_star_lite.egg-info/SOURCES.txt'
+[1.074s] running build
+[1.074s] running build_py
+[1.074s] creating /home/jwrig/EGH400-2/build/d_star_lite/build
+[1.074s] creating /home/jwrig/EGH400-2/build/d_star_lite/build/lib
+[1.075s] creating /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite
+[1.075s] copying d_star_lite/graph.py -> /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite
+[1.076s] copying d_star_lite/main.py -> /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite
+[1.076s] copying d_star_lite/notes.py -> /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite
+[1.076s] copying d_star_lite/d_star_lite.py -> /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite
+[1.076s] copying d_star_lite/__init__.py -> /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite
+[1.076s] running install
+[1.076s] /home/jwrig/.local/lib/python3.10/site-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+[1.077s] !!
+[1.077s] 
+[1.077s]         ********************************************************************************
+[1.077s]         Please avoid running ``setup.py`` directly.
+[1.077s]         Instead, use pypa/build, pypa/installer or other
+[1.077s]         standards-based tools.
+[1.077s] 
+[1.077s]         See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+[1.078s]         ********************************************************************************
+[1.078s] 
+[1.078s] !!
+[1.078s]   self.initialize_options()
+[1.080s] running install_lib
+[1.094s] creating /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite
+[1.094s] copying /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite/graph.py -> /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite
+[1.094s] copying /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite/main.py -> /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite
+[1.094s] copying /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite/notes.py -> /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite
+[1.094s] copying /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite/d_star_lite.py -> /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite
+[1.094s] copying /home/jwrig/EGH400-2/build/d_star_lite/build/lib/d_star_lite/__init__.py -> /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite
+[1.095s] byte-compiling /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite/graph.py to graph.cpython-310.pyc
+[1.095s] byte-compiling /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite/main.py to main.cpython-310.pyc
+[1.096s] byte-compiling /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite/notes.py to notes.cpython-310.pyc
+[1.096s] byte-compiling /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite/d_star_lite.py to d_star_lite.cpython-310.pyc
+[1.097s] byte-compiling /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite/__init__.py to __init__.cpython-310.pyc
+[1.097s] running install_data
+[1.111s] creating /home/jwrig/EGH400-2/install/d_star_lite/share/ament_index
+[1.111s] creating /home/jwrig/EGH400-2/install/d_star_lite/share/ament_index/resource_index
+[1.112s] creating /home/jwrig/EGH400-2/install/d_star_lite/share/ament_index/resource_index/packages
+[1.112s] copying resource/d_star_lite -> /home/jwrig/EGH400-2/install/d_star_lite/share/ament_index/resource_index/packages
+[1.112s] copying package.xml -> /home/jwrig/EGH400-2/install/d_star_lite/share/d_star_lite
+[1.112s] running install_egg_info
+[1.127s] Copying ../../build/d_star_lite/d_star_lite.egg-info to /home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages/d_star_lite-0.0.0-py3.10.egg-info
+[1.127s] running install_scripts
+[1.261s] writing list of installed files to '/home/jwrig/EGH400-2/build/d_star_lite/install.log'
+[1.289s] Invoked command in '/home/jwrig/EGH400-2/src/d_star_lite' returned '0': CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib PYTHONPATH=/home/jwrig/EGH400-2/build/d_star_lite/prefix_override:/home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/d_star_lite build --build-base /home/jwrig/EGH400-2/build/d_star_lite/build install --record /home/jwrig/EGH400-2/build/d_star_lite/install.log --single-version-externally-managed

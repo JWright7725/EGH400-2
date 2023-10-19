@@ -2,12 +2,15 @@ import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy, DurabilityPolicy
 from px4_msgs.msg import OffboardControlMode, TrajectorySetpoint, VehicleCommand, VehicleOdometry, VehicleStatus
+from offboard_control.d_star_lite import d_star_lite, graph, notes
 from math import pi
 
 class OffboardControl(Node):
     """Python package for providing offboard control"""
 
-    def __init__(self) -> None:
+    ## INITITALISATION FUNCTION
+
+    def __init__(self):
         super().__init__('UAV_Control')
 
         # Configure QoS profile for publishing and subscribing
@@ -22,8 +25,7 @@ class OffboardControl(Node):
         # Declare a parameter to hold the UAV ID
         self.declare_parameter('UAV_ID', '0')
         self.uav_id = self.get_parameter('UAV_ID').get_parameter_value().string_value
-
-        self.get_logger().info(f'UAV ID: {self.uav_id}')
+        # self.get_logger().info(f'UAV ID: {self.uav_id}')
 
         # Add a prefix to all ROS2 publishers and subscribers if multiple UAVs are being utilised
         if self.uav_id != '0':
@@ -31,8 +33,7 @@ class OffboardControl(Node):
         else:
             uav_prefix = ''
 
-
-        # Create publishers
+        # Create ROS2 Publisher Nodes
         self.offboard_control_mode_publisher = self.create_publisher(
             OffboardControlMode, uav_prefix + '/fmu/in/offboard_control_mode', qos_profile)
         self.trajectory_setpoint_publisher = self.create_publisher(
@@ -40,24 +41,23 @@ class OffboardControl(Node):
         self.vehicle_command_publisher = self.create_publisher(
             VehicleCommand, uav_prefix + '/fmu/in/vehicle_command', qos_profile)
 
-        # Create subscribers
+        # Create ROS2 Subscribers Nodes
         self.position_subscriber = self.create_subscription(
             VehicleOdometry, uav_prefix + '/fmu/out/vehicle_odometry', self.position_callback, qos_profile)
         self.status_subscriber = self.create_subscription(
             VehicleStatus, uav_prefix + '/fmu/out/vehicle_status', self.status_callback, qos_profile)
 
-        # Initialize variables
+        ## Initialise Mission Variables
+
+        # UAV Status indicators
         self.offboard_setpoint_counter = 0
         self.vehicle_status = VehicleStatus()
-
         # Initial UAV Position
-        self.x = 0
-        self.y = 0
-        self.z = 0
-
+        self.x = 0.0
+        self.y = 0.0
+        self.z = 0.0
         # Check if the UAV has been commanded to land after completing it's mission
         self.landed = False
-
         # The tolerance for reaching each waypoint
         self.waypoint_tol = 0.1 # [m]
         # The current waypoint being targeted
@@ -73,35 +73,19 @@ class OffboardControl(Node):
                               [-2.0, 5.0, -10.0, -pi]]
         else:
             self.waypoints = []
-
         # Whether the UAV has been armed
         self.armed = False
         # Whether the UAV is currently performing D* Lite searching
         self.d_star_lite_mode = False
         self.next_waypoint = self.waypoints[0] # [x, y, z, yaw]
         
-        # Create a timer to publish control commands
+        # Create a callback timer to periodically publish control commands
         self.timer_period = 0.1 # [s]
-        self.timer = self.create_timer(self.timer_period, self.timer_callback)
+        self.timer = self.create_timer(self.timer_period, self.check_mission_status)
 
-    def distance_to_waypoint(self, waypoint):
-        """Calculates the Euclidean distance between the UAV and the current waypoint"""
-        # Calculate the distance in each cardinal direction
-        x_dis = waypoint[0] - self.x
-        y_dis = waypoint[1] - self.y
-        z_dis = waypoint[2] - self.z
+        self.get_logger().info(notes.test_function())
 
-        # Calculate the total distance using the pythagorean theorem
-        waypoint_distance = (x_dis**2 + y_dis**2 + z_dis**2) ** (1/2)
-        
-        #self.get_logger().info(f'Distance to Waypoint: {waypoint_distance}')
-
-        # Return the total distance
-        return waypoint_distance
-    
-    def reached_waypoint(self, waypoint):
-        """Determines if the UAV has reached the current waypoint"""
-        return self.distance_to_waypoint(waypoint) <= self.waypoint_tol
+    ## CALLBACK FUNCTIONS
 
     def position_callback(self, msg_in):
         """Callback function for vehicle_local_position topic subscriber."""
@@ -114,6 +98,8 @@ class OffboardControl(Node):
         self.vehicle_status = vehicle_status
         #self.get_logger().info(str(vehicle_status.nav_state))
         #self.get_logger().info(str(vehicle_status.arming_state))
+
+    ## UAV STATUS FUNCTIONS
 
     def arm(self):
         """Send an arm command to the vehicle."""
@@ -148,6 +134,8 @@ class OffboardControl(Node):
         """Land at the current location"""
         self.publish_vehicle_command(VehicleCommand.VEHICLE_CMD_NAV_LAND)
         self.get_logger().info("Switching to land mode")
+
+    ## PUBLISH COMMAND FUNCTIONS
 
     def publish_offboard_control_heartbeat_signal(self):
         """Publish the offboard control mode."""
@@ -187,7 +175,30 @@ class OffboardControl(Node):
         msg.timestamp = int(self.get_clock().now().nanoseconds / 1000)
         self.vehicle_command_publisher.publish(msg)
 
-    def timer_callback(self):
+    ## MISSION HELPER FUNCTIONS
+
+    def distance_to_waypoint(self, waypoint):
+        """Calculates the Euclidean distance between the UAV and the current waypoint"""
+        # Calculate the distance in each cardinal direction
+        x_dis = waypoint[0] - self.x
+        y_dis = waypoint[1] - self.y
+        z_dis = waypoint[2] - self.z
+
+        # Calculate the total distance using the pythagorean theorem
+        waypoint_distance = (x_dis**2 + y_dis**2 + z_dis**2) ** (1/2)
+        
+        #self.get_logger().info(f'Distance to Waypoint: {waypoint_distance}')
+
+        # Return the total distance
+        return waypoint_distance
+    
+    def reached_waypoint(self, waypoint):
+        """Determines if the UAV has reached the current waypoint"""
+        return self.distance_to_waypoint(waypoint) <= self.waypoint_tol
+
+    ## MAIN MISSION STATUS FUNCTION
+
+    def check_mission_status(self):
         """Callback function to publish control commands"""
 
         # Always publish a heartbeat signal to ensure connectivity has not been lost
