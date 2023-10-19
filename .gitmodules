@@ -1,3 +1,6 @@
 [submodule "src/d_star_lite"]
 	path = src/d_star_lite
 	url = git@github.com:JWright7725/d_star_lite.git
+[submodule "src/offboard_control/offboard_control/d_star_lite"]
+	path = src/offboard_control/offboard_control/d_star_lite
+	url = git@github.com:JWright7725/d_star_lite.git
