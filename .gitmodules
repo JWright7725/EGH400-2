@@ -1,0 +1,3 @@
+[submodule "src/d_star_lite"]
+	path = src/d_star_lite
+	url = git@github.com:JWright7725/d_star_lite.git
