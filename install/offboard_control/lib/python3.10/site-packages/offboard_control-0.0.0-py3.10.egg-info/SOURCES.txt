@@ -12,6 +12,7 @@ launch/UAV_control_launch.py
 launch/UAV_single_launch.py
 offboard_control/UAV_control.py
 offboard_control/__init__.py
+offboard_control/obstacle_locations.py
 offboard_control/d_star_lite/d_star_lite.py
 offboard_control/d_star_lite/graph.py
 offboard_control/d_star_lite/main.py

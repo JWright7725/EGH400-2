@@ -1,4 +1,5 @@
 from cmath import inf
+from offboard_control.obstacle_locations import *
 
 class GridNode:
     def __init__(self, location):
@@ -32,10 +33,13 @@ class Grid:
         # Store the dimensions of the grid in a tuple (x, y, z)
         self.dimensions = dimensions
 
+        # Store the locations of any static obstacles within the flight environment
+        self.obstacle_node_limits = obstacle_locations()
+
         # Create an element for each cell in the grid denoting its current status:
         # 0: Empty (Non-Obstacle)
         # 1: Filled (Obstacle)
-        self.cells = {(ii, jj, kk): 0 for ii in range(dimensions[0]) for jj in range(dimensions[1]) for kk in range(dimensions[2])}
+        self.cells = {(ii, jj, kk): 0 for ii in range(dimensions[0]+1) for jj in range(dimensions[1]+1) for kk in range(dimensions[2]+1)}
         # print(self.cells)
         self.generateGraph()
 
@@ -69,6 +73,7 @@ class Grid:
 
     # UPDATE THIS FUNCTION TO ACCEPT KNOWN OBSTACLES AT THE BEGINNING OF THE SEARCH
     def generateGraph(self):
+        # print(f'Obstacle inputted with x limits: {self.obstacle_node_limits[0][0]} - {self.obstacle_node_limits[0][1]}')
         for z in range(self.dimensions[2]):
             for y in range(self.dimensions[1]):
                 for x in range(self.dimensions[0]):
@@ -84,8 +89,14 @@ class Grid:
                                     # Check if the neighbouring cell is within the bounds of the graph
                                     if xx >= 0 and xx < self.dimensions[0] and yy >= 0 and yy < self.dimensions[1] and zz >= 0 and zz < self.dimensions[2]:
                                         # Add the distance to the neighbour as the value to the dictionary entry for the neighbour
-                                        node.pred[(xx, yy, zz)] = 1
-                                        node.succ[(xx, yy, zz)] = 1
+                                        if (xx >= self.obstacle_node_limits[0][0] and xx <= self.obstacle_node_limits[0][1]) and \
+                                           (yy >= self.obstacle_node_limits[1][0] and yy <= self.obstacle_node_limits[1][1]) and \
+                                           (zz >= self.obstacle_node_limits[2][0] and zz <= self.obstacle_node_limits[2][1]):
+                                            node.pred[(xx, yy, zz)] = inf
+                                            node.succ[(xx, yy, zz)] = inf
+                                        else:
+                                            node.pred[(xx, yy, zz)] = 1
+                                            node.succ[(xx, yy, zz)] = 1
                     # Add the node to the graph
                     self.graph[(x, y, z)] = node
 
@@ -93,7 +104,7 @@ class Grid:
 
 
 def addNodeToGraph(graph, location, neighbours):
-    node = Node(location)
+    node = GridNode(location)
     for neighbour in neighbours:
         node.pred[neighbour] = 1
         node.succ[neighbour] = 1

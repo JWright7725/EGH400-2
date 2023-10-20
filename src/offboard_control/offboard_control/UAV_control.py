@@ -104,10 +104,10 @@ class OffboardControl(Node):
 
         print(f'Created Grid of size: {self.node_length} x {self.node_width} x {self.node_height}')
         # print(f'Node Location: {(0,0,0)}, World Location:{self.node_to_world((0,0,0))}')
-        # print(f'World Location: {[-5,-5,-2]}, Node Location:{self.world_to_node([-5,-5,-2])}')
+        # print(f'World Location: {[0,3,-2]}, Node Location:{self.world_to_node([0,3,-2])}')
 
         # print(f'Node Location: {(10,10,10)}, World Location:{self.node_to_world((10,10,10))}')
-        # print(f'World Location: {[0,0,-7]}, Node Location:{self.world_to_node([0,0,-7])}')
+        # print(f'World Location: {[2,4,-7]}, Node Location:{self.world_to_node([2,4,-7])}')
 
         # print(f'Node Location: {(20,20,20)}, World Location:{self.node_to_world((20,20,20))}')
         # print(f'World Location: {[5,5,-12]}, Node Location:{self.world_to_node([5,5,-12])}')
@@ -277,6 +277,8 @@ class OffboardControl(Node):
                 self.graph.setGoal(self.goal_node)
                 self.graph, self.queue, self.k_m = initDStarLite(self.graph, self.start_node, self.goal_node)
                 computeShortestPath(self.graph, self.queue, self.start_node, self.k_m)
+
+                
                 
                 # Set the next waypoint to be the first node within the D* Lite search
                 self.target_node, self.k_m = moveAndRescan(self.graph, self.queue, self.start_node, self.k_m, self.view_distance)
@@ -284,6 +286,9 @@ class OffboardControl(Node):
                 self.next_waypoint = self.node_to_world(self.target_node)
                 self.get_logger().info(f'The first D* Node to visit is {self.target_node} at: {self.next_waypoint}')
                 
+                # Hold the nodal locations of the path generated for logging purposes
+                self.d_star_path = [self.start_node, self.target_node]
+
                 # Note that the UAV is performing a D* Lite Search between waypoints
                 self.d_star_lite_mode = True
 
@@ -297,6 +302,7 @@ class OffboardControl(Node):
                             self.get_logger().info(f'UAV {self.uav_id} has reached Waypoint {self.waypoint_index + 1} at: {self.waypoints[self.waypoint_index][:3]}')
                             self.waypoint_index += 1
                             self.d_star_lite_mode = False
+                            self.get_logger().info(f'D* Lite Nodal Path: {self.d_star_path}')
                         else:
                             self.reached_min_flight_height = True
                         # If all waypoints have been reached, land the UAV and disarm the system
@@ -311,6 +317,10 @@ class OffboardControl(Node):
                         self.current_node = self.target_node
                         self.next_waypoint = self.node_to_world(self.target_node)
                         self.get_logger().info(f'The next D* Node to visit is {self.target_node} at: {self.next_waypoint}')
+                    
+                        # Add the next node to the stored D* Lite path
+                        self.d_star_path.append(self.target_node)
+                    
                     else:
                         self.reached_min_flight_height = True
             # If the UAV has not been landed, continuously publish the location of the next waypoint
