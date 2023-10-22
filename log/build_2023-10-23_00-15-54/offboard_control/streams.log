@@ -1,0 +1,39 @@
+[0.835s] Invoking command in '/home/jwrig/EGH400-2/src/offboard_control': CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib PYTHONPATH=/home/jwrig/EGH400-2/build/offboard_control/prefix_override:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/offboard_control build --build-base /home/jwrig/EGH400-2/build/offboard_control/build install --record /home/jwrig/EGH400-2/build/offboard_control/install.log --single-version-externally-managed
+[1.050s] running egg_info
+[1.065s] writing ../../build/offboard_control/offboard_control.egg-info/PKG-INFO
+[1.065s] writing dependency_links to ../../build/offboard_control/offboard_control.egg-info/dependency_links.txt
+[1.065s] writing entry points to ../../build/offboard_control/offboard_control.egg-info/entry_points.txt
+[1.066s] writing requirements to ../../build/offboard_control/offboard_control.egg-info/requires.txt
+[1.066s] writing top-level names to ../../build/offboard_control/offboard_control.egg-info/top_level.txt
+[1.094s] reading manifest file '../../build/offboard_control/offboard_control.egg-info/SOURCES.txt'
+[1.095s] writing manifest file '../../build/offboard_control/offboard_control.egg-info/SOURCES.txt'
+[1.095s] running build
+[1.095s] running build_py
+[1.096s] copying offboard_control/obstacle_locations.py -> /home/jwrig/EGH400-2/build/offboard_control/build/lib/offboard_control
+[1.096s] running install
+[1.096s] /home/jwrig/.local/lib/python3.10/site-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+[1.096s] !!
+[1.096s] 
+[1.096s]         ********************************************************************************
+[1.096s]         Please avoid running ``setup.py`` directly.
+[1.096s]         Instead, use pypa/build, pypa/installer or other
+[1.096s]         standards-based tools.
+[1.096s] 
+[1.096s]         See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+[1.097s]         ********************************************************************************
+[1.097s] 
+[1.097s] !!
+[1.097s]   self.initialize_options()
+[1.101s] running install_lib
+[1.115s] copying /home/jwrig/EGH400-2/build/offboard_control/build/lib/offboard_control/d_star_lite/graph.py -> /home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control/d_star_lite
+[1.116s] copying /home/jwrig/EGH400-2/build/offboard_control/build/lib/offboard_control/obstacle_locations.py -> /home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control
+[1.116s] byte-compiling /home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control/d_star_lite/graph.py to graph.cpython-310.pyc
+[1.117s] byte-compiling /home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control/obstacle_locations.py to obstacle_locations.cpython-310.pyc
+[1.117s] running install_data
+[1.133s] running install_egg_info
+[1.149s] removing '/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control-0.0.0-py3.10.egg-info' (and everything under it)
+[1.156s] Copying ../../build/offboard_control/offboard_control.egg-info to /home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages/offboard_control-0.0.0-py3.10.egg-info
+[1.156s] running install_scripts
+[1.292s] Installing UAV_control script to /home/jwrig/EGH400-2/install/offboard_control/lib/offboard_control
+[1.293s] writing list of installed files to '/home/jwrig/EGH400-2/build/offboard_control/install.log'
+[1.323s] Invoked command in '/home/jwrig/EGH400-2/src/offboard_control' returned '0': CMAKE_PREFIX_PATH=/home/jwrig/EGH400-2/install/px4_msgs:/home/jwrig/EGH400-2/install/px4_ros_com:/home/jwrig/EGH400-2/install/offboard_control LD_LIBRARY_PATH=/home/jwrig/EGH400-2/install/px4_msgs/lib:/home/jwrig/EGH400-2/install/px4_ros_com/lib:/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib PYTHONPATH=/home/jwrig/EGH400-2/build/offboard_control/prefix_override:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/px4_msgs/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/offboard_control/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/d_star_lite/lib/python3.10/site-packages:/home/jwrig/EGH400-2/install/control_demo/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/offboard_control build --build-base /home/jwrig/EGH400-2/build/offboard_control/build install --record /home/jwrig/EGH400-2/build/offboard_control/install.log --single-version-externally-managed

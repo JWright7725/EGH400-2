@@ -71,7 +71,6 @@ class Grid:
             raise ValueError('Goal Location not valid')
 
 
-    # UPDATE THIS FUNCTION TO ACCEPT KNOWN OBSTACLES AT THE BEGINNING OF THE SEARCH
     def generateGraph(self):
         # print(f'Obstacle inputted with x limits: {self.obstacle_node_limits[0][0]} - {self.obstacle_node_limits[0][1]}')
         for z in range(self.dimensions[2]):
@@ -89,14 +88,15 @@ class Grid:
                                     # Check if the neighbouring cell is within the bounds of the graph
                                     if xx >= 0 and xx < self.dimensions[0] and yy >= 0 and yy < self.dimensions[1] and zz >= 0 and zz < self.dimensions[2]:
                                         # Add the distance to the neighbour as the value to the dictionary entry for the neighbour
-                                        if (xx >= self.obstacle_node_limits[0][0] and xx <= self.obstacle_node_limits[0][1]) and \
-                                           (yy >= self.obstacle_node_limits[1][0] and yy <= self.obstacle_node_limits[1][1]) and \
-                                           (zz >= self.obstacle_node_limits[2][0] and zz <= self.obstacle_node_limits[2][1]):
-                                            node.pred[(xx, yy, zz)] = inf
-                                            node.succ[(xx, yy, zz)] = inf
-                                        else:
-                                            node.pred[(xx, yy, zz)] = 1
-                                            node.succ[(xx, yy, zz)] = 1
+                                        node.pred[(xx, yy, zz)] = 1
+                                        node.succ[(xx, yy, zz)] = 1
+                                        for ii in range(0, len(self.obstacle_node_limits)):
+                                            if (xx >= self.obstacle_node_limits[ii][0][0] and xx <= self.obstacle_node_limits[ii][0][1]) and \
+                                               (yy >= self.obstacle_node_limits[ii][1][0] and yy <= self.obstacle_node_limits[ii][1][1]) and \
+                                               (zz >= self.obstacle_node_limits[ii][2][0] and zz <= self.obstacle_node_limits[ii][2][1]):
+                                                node.pred[(xx, yy, zz)] = inf
+                                                node.succ[(xx, yy, zz)] = inf
+                                            
                     # Add the node to the graph
                     self.graph[(x, y, z)] = node
 

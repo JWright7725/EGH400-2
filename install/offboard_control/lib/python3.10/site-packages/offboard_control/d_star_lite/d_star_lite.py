@@ -62,7 +62,7 @@ def nextInShortestPath(graph, s_current):
 
 # This process could scan all cells after each movement, however this is inefficient, as faraway cells will not
 # effect the planned path of the UAV, therefore, to optimise the algorithm, only cells within a limited distance of the UAV are checked.
-def scanForObstacles(graph, queue, s_current, k_m, view_distance):
+def scanForObstacles(graph, queue, s_current, k_m, view_distance, obstacle_location):
     # If the flight environment is known to be static, the UAV should not check for new obstacles
     # as an optimisation method. This can be achieved by setting the view distance as either 0 or -1.
     if view_distance < 1:
@@ -78,32 +78,32 @@ def scanForObstacles(graph, queue, s_current, k_m, view_distance):
             cells_to_update = new_cells
         for cell in cells_to_update:
 
-            # UPDATE THIS VARIABLE TO DETERMINE IF A GIVEN CELL CONTAINS AN OBSTACLE
-            updated_cell_state = 0
+            # If their are multiple UAVs in the mission
+            if obstacle_location:
+                # If the updated cell does contain an obstacle
+                if (cell[0] >= obstacle_location[0] - 1 and cell[0] <= obstacle_location[0] + 1) and \
+                   (cell[1] >= obstacle_location[1] - 1 and cell[1] <= obstacle_location[1] + 1) and \
+                   (cell[2] >= obstacle_location[2] - 1 and cell[2] <= obstacle_location[2] + 1):
+                    # Update the cell state
+                    graph.cells[cell] = 1
+                    for succ in graph.graph[cell].succ:
+                        # Update the cost of moving between the obstacle cell and its successors, and vice versa
+                        graph.graph[cell].succ[succ] = inf
+                        graph.graph[succ].succ[cell] = inf
+                        # Update the queue of potential successors with this new cost
+                        updateVertex(graph, queue, cell, s_current, k_m)
+                else:
+                    # Update the cell state
+                    graph.cells[cell] = 0
+                    for succ in graph.graph[cell].succ:
+                        # Update the cost of moving between the obstacle cell and its successors, and vice versa
+                        graph.graph[cell].succ[succ] = 1
+                        graph.graph[succ].succ[cell] = 1
+                        # Update the queue of potential successors with this new cost
+                        updateVertex(graph, queue, cell, s_current, k_m)               
 
-            # If the updated cell does not contain an obstacle
-            if updated_cell_state == 0:
-                # Update the cell state
-                graph.cells[cell] = 0
-                for succ in graph.graph[cell].succ:
-                    # Update the cost of moving between the obstacle cell and its successors, and vice versa
-                    graph.graph[cell].succ[succ] = 1
-                    graph.graph[succ].succ[cell] = 1
-                    # Update the queue of potential successors with this new cost
-                    updateVertex(graph, queue, cell, s_current, k_m)
-            # If the updated cell does contain an obstacle
-            else:
-                # Update the cell state
-                graph.cells[cell] = 1
-                for succ in graph.graph[cell].succ:
-                    # Update the cost of moving between the obstacle cell and its successors, and vice versa
-                    graph.graph[cell].succ[succ] = inf
-                    graph.graph[succ].succ[cell] = inf
-                    # Update the queue of potential successors with this new cost
-                    updateVertex(graph, queue, cell, s_current, k_m)
 
-
-def moveAndRescan(graph, queue, s_current, k_m, view_distance):
+def moveAndRescan(graph, queue, s_current, k_m, view_distance, obstacle_location):
     # Determine the optimal successor
     s_next = nextInShortestPath(graph, s_current)
 
@@ -113,7 +113,7 @@ def moveAndRescan(graph, queue, s_current, k_m, view_distance):
         s_next = s_current
 
     # Check the surrounding cells for obstacles
-    scanForObstacles(graph, queue, s_current, k_m, view_distance)
+    scanForObstacles(graph, queue, s_current, k_m, view_distance, obstacle_location)
     # Update the value of k_m
     k_m += hueristicFromS(s_current, s_next)
     # Compute the new shortest path from the current cell
