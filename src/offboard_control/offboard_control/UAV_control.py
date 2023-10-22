@@ -30,23 +30,29 @@ class OffboardControl(Node):
 
         # Add a prefix to all ROS2 publishers and subscribers if multiple UAVs are being utilised
         if self.uav_id != '0':
-            uav_prefix = '/px4_' + self.uav_id
+            self_uav_prefix = '/px4_' + self.uav_id
+            if self.uav_id == '1':
+                self.other_position_subscriber = self.create_subscription(VehicleOdometry, 
+                                '/px4_2/fmu/out/vehicle_odometry', self.other_position_callback, qos_profile)
+            else:
+                self.other_position_subscriber = self.create_subscription(VehicleOdometry, 
+                                '/px4_1/fmu/out/vehicle_odometry', self.other_position_callback, qos_profile)
         else:
-            uav_prefix = ''
+            self_uav_prefix = ''
 
         # Create ROS2 Publisher Nodes
         self.offboard_control_mode_publisher = self.create_publisher(
-            OffboardControlMode, uav_prefix + '/fmu/in/offboard_control_mode', qos_profile)
+            OffboardControlMode, self_uav_prefix + '/fmu/in/offboard_control_mode', qos_profile)
         self.trajectory_setpoint_publisher = self.create_publisher(
-            TrajectorySetpoint, uav_prefix + '/fmu/in/trajectory_setpoint', qos_profile)
+            TrajectorySetpoint, self_uav_prefix + '/fmu/in/trajectory_setpoint', qos_profile)
         self.vehicle_command_publisher = self.create_publisher(
-            VehicleCommand, uav_prefix + '/fmu/in/vehicle_command', qos_profile)
+            VehicleCommand, self_uav_prefix + '/fmu/in/vehicle_command', qos_profile)
 
         # Create ROS2 Subscribers Nodes
         self.position_subscriber = self.create_subscription(
-            VehicleOdometry, uav_prefix + '/fmu/out/vehicle_odometry', self.position_callback, qos_profile)
+            VehicleOdometry, self_uav_prefix + '/fmu/out/vehicle_odometry', self.position_callback, qos_profile)
         self.status_subscriber = self.create_subscription(
-            VehicleStatus, uav_prefix + '/fmu/out/vehicle_status', self.status_callback, qos_profile)
+            VehicleStatus, self_uav_prefix + '/fmu/out/vehicle_status', self.status_callback, qos_profile)
 
         ## Initialise Mission Variables
 
@@ -67,11 +73,11 @@ class OffboardControl(Node):
         if self.uav_id == '1':
             self.waypoints = [[1.0, 1.0, -2.5, 0.0],
                               [1.0, 5.0, -2.5, 0.0],
-                              [1.0, 1.0, -2.5, 0.0]]
+                              [5.0, 5.0, -2.5, 0.0]]
         elif self.uav_id == '2':
-            self.waypoints = [[0.0, 0.0, -2.5, pi],
+            self.waypoints = [[0.0, 0.0, -2.5, 0.0],
                               [10.0, 10.0, -2.5, 0.0],
-                              [2.0, 5.0, -10.0, -pi]]
+                              [2.0, 5.0, -10.0, 0.0]]
         else:
             self.waypoints = []
         # Whether the UAV has been armed
@@ -97,6 +103,9 @@ class OffboardControl(Node):
         self.node_length = int(self.env_length / self.node_distance) + 1
         self.node_width = int(self.env_width / self.node_distance) + 1
         self.node_height = int(self.env_height / self.node_distance) + 1
+
+        # Nodal location of the other UAV in the mission
+        self.other_node_location = []
 
         
 
@@ -133,6 +142,12 @@ class OffboardControl(Node):
         self.vehicle_status = vehicle_status
         #self.get_logger().info(str(vehicle_status.nav_state))
         #self.get_logger().info(str(vehicle_status.arming_state))
+
+    def other_position_callback(self, msg_in):
+        """Callback function to track the nodal location of other mission UAVs"""
+        self.other_node_location = self.world_to_node([msg_in.position[0], 
+                                                       msg_in.position[1], 
+                                                       msg_in.position[2]])
 
     ## UAV STATUS FUNCTIONS
 
@@ -233,10 +248,10 @@ class OffboardControl(Node):
 
     def world_to_node(self, world_location):
         """Function for translating between the world frame and the D* Lite node locations"""
-        self.get_logger().info(f'{world_location}')
-        node_x = int((world_location[0] + self.world_x_offset) // self.node_distance)
-        node_y = int((world_location[1] + self.world_y_offset) // self.node_distance)
-        node_z = -int((world_location[2] + self.min_flight_height) // self.node_distance)
+        # self.get_logger().info(f'{world_location}')
+        node_x = int(round((world_location[0] + self.world_x_offset) / self.node_distance))
+        node_y = int(round((world_location[1] + self.world_y_offset) / self.node_distance))
+        node_z = -int(round((world_location[2] + self.min_flight_height) / self.node_distance))
         node_location = (node_x, node_y, node_z)
         return node_location
     
@@ -281,7 +296,7 @@ class OffboardControl(Node):
                 
                 
                 # Set the next waypoint to be the first node within the D* Lite search
-                self.target_node, self.k_m = moveAndRescan(self.graph, self.queue, self.start_node, self.k_m, self.view_distance)
+                self.target_node, self.k_m = moveAndRescan(self.graph, self.queue, self.start_node, self.k_m, self.view_distance, self.other_node_location)
                 self.current_node = self.target_node
                 self.next_waypoint = self.node_to_world(self.target_node)
                 self.get_logger().info(f'The first D* Node to visit is {self.target_node} at: {self.next_waypoint}')
@@ -313,7 +328,7 @@ class OffboardControl(Node):
                     if self.reached_min_flight_height:
                         # If the last D* Lite node has been reached, rescan the area and determine the next suitable node position for the UAV
                         self.get_logger().info('Reached the desired D* Lite Waypoint, calculating next')
-                        self.target_node, self.k_m = moveAndRescan(self.graph, self.queue, self.current_node, self.k_m, self.view_distance)
+                        self.target_node, self.k_m = moveAndRescan(self.graph, self.queue, self.current_node, self.k_m, self.view_distance, self.other_node_location)
                         self.current_node = self.target_node
                         self.next_waypoint = self.node_to_world(self.target_node)
                         self.get_logger().info(f'The next D* Node to visit is {self.target_node} at: {self.next_waypoint}')
