@@ -72,8 +72,8 @@ class OffboardControl(Node):
         # The list of all waypoints for the mission in order
         if self.uav_id == '1':
             self.waypoints = [[1.0, 1.0, -2.5, 0.0],
-                              [1.0, 5.0, -2.5, 0.0],
-                              [5.0, 5.0, -2.5, 0.0]]
+                              [1.0, 8.0, -2.5, 0.0],
+                              [8.0, 8.0, -2.5, 0.0]]
         elif self.uav_id == '2':
             self.waypoints = [[0.0, 0.0, -2.5, 0.0],
                               [10.0, 10.0, -2.5, 0.0],
